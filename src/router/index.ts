@@ -4,17 +4,18 @@ import Home from '../views/Home.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    component: () => import('../views/Home.vue'),
+    meta: {
+      title: '常见问题'
+    }
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/localprint',
+    component: () => import('../components/LocalPrint.vue'),
+    meta: {
+        title: '本地打印'
+    }
+},
 ]
 
 const router = createRouter({
